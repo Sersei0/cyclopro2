@@ -10,10 +10,9 @@ use App\Form\AjoutReparationType;
 final class ReparationController extends AbstractController
 {
     #[Route('/reparation', name: 'app_reparation')]
-    public function index(): Response
+    public function demandeReparation(): Response
     {
-        return $this->render('reparation/index.html.twig', [
-            'controller_name' => 'ReparationController',
-        ]);
+        $form=$this->createForm(AjoutReparationType::class);
+        return $this->render('reparation/reparation.html.twig', ['formAjoutReparation'=>$form->createView(),]);
     }
 }
